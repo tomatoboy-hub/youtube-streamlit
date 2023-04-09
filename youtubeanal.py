@@ -39,12 +39,14 @@ def get_video_comments(video_id, api_key):
 def main():
     # アプリケーションタイトル
     st.title("YouTubeコメント解析アプリ")
-
+    st.write("1に近いほどポジティブ、-1に近いほどネガティブ")
     # YouTube APIキーの入力
     api_key = st.text_input("YouTube APIキーを入力してください")
 
     # ビデオIDの入力
     video_id = st.text_input("URLを入力してください")[-11:]
+
+    st.write("英語の動画の方がいいです...,翻訳は時間がかかります")
 
     show_comments = st.checkbox('コメントを表示する')
     
@@ -84,7 +86,6 @@ def main():
                         translated = translator.translate(comment)
                         st.markdown(f"{translated}")
             st.write("平均値:",scores/count)
-            st.write("1に近いほどポジティブ、-1に近いほどネガティブ")
         
         except Exception as e:
             st.write("エラー： " + str(e))
