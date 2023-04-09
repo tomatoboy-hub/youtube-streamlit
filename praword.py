@@ -16,7 +16,7 @@ def get_video_info(video_id):
 
 # 動画のコメントを取得して、感情分析を行う関数
 def analyze_comments(video_id):
-    youtube = build('youtube', 'v3', key=API_KEY)
+    youtube = build('youtube', 'v3', developerKey=API_KEY)
     comments = []
     next_page_token = None
     while True:
